@@ -2,7 +2,7 @@
   <form @submit.prevent="addEvent">
     <input v-model="newEvents.name" type="text" placeholder="Event name" />
     <textarea v-model="newEvents.description" placeholder="Event description" />
-    <input v-model="newEvents.date" type="text" placeholder="Event date" />
+    <input v-model="newEvents.date" type="date" placeholder="Event date" />
     <select v-model="newEvents.priority">
       <option value="high">High</option>
       <option value="medium">Medium</option>
