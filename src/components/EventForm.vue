@@ -29,7 +29,6 @@ const addEvent = () => {
   eventStore.createEvent(newEvents)
   newEvents.name = ''
   newEvents.description = ''
-  newEvents.date = ''
   newEvents.priority = 'high'
 }
 </script>
