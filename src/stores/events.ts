@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { v4 as uuid } from 'uuid'
 
-interface Events {
+export interface Events {
   id: string
   name: string
   description: string
