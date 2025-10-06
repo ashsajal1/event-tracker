@@ -20,11 +20,12 @@ const eventStore = useEventStore()
 const newEvents = reactive<Omit<Events, 'id'>>({
   name: '',
   description: '',
-  date: '',
+  date: new Date().toISOString().split('T')[0]!,
   priority: 'high',
 })
 
 const addEvent = () => {
+  newEvents.date = new Date().toISOString().split('T')[0]!
   eventStore.createEvent(newEvents)
   newEvents.name = ''
   newEvents.description = ''
