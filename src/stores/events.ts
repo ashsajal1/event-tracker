@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { v4 as uuid } from 'uuid'
 
 interface Events {
   id: string
@@ -12,8 +13,8 @@ interface Events {
 export const useEventStore = defineStore('events', () => {
   const events = ref<Events[]>([])
 
-  const createEvent = (event: Events) => {
-    events.value.push(event)
+  const createEvent = (event: Omit<Events, 'id'>) => {
+    events.value.push({ ...event, id: uuid() })
   }
 
   const deleteEvent = (id: string) => {
