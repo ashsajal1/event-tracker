@@ -2,7 +2,7 @@
 import { reactive } from 'vue'
 import { useEventStore, type Events } from '../stores/events'
 const eventStore = useEventStore()
-const events = eventStore.events;
+const events = eventStore.events
 
 const newEvents = reactive<Omit<Events, 'id'>>({
   name: '',
@@ -29,7 +29,7 @@ const addEvent = () => {
 
     <form @submit.prevent="addEvent">
       <input v-model="newEvents.name" type="text" placeholder="Event name" />
-      <input v-model="newEvents.description" type="text" placeholder="Event description" />
+      <textarea v-model="newEvents.description" placeholder="Event description" />
       <input v-model="newEvents.date" type="text" placeholder="Event date" />
       <select v-model="newEvents.priority">
         <option value="high">High</option>
@@ -40,3 +40,34 @@ const addEvent = () => {
     </form>
   </main>
 </template>
+
+<style scoped lang="scss">
+ul {
+  li {
+    list-style-type: none;
+    margin: 10px 0;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  input,
+  textarea,
+  select,
+  button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+}
+</style>
