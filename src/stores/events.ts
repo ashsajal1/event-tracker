@@ -7,7 +7,7 @@ interface Events {
   name: string
   description: string
   date: string
-  priority: 'high' | 'medium' | 'low'
+  priority?: 'high' | 'medium' | 'low'
 }
 
 export const useEventStore = defineStore('events', () => {
