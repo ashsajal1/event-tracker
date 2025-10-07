@@ -2,12 +2,21 @@
   <nav>
     <h3>Logo</h3>
     <div>
-      <button @click="toggleDark()">{{ isDark ? 'Light' : 'Dark' }}</button>
+      <button
+        class="btn btn-icon"
+        @click="toggleDark()"
+        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        <Sun v-if="isDark" class="icon" />
+        <Moon v-else class="icon" />
+        <span class="sr-only">{{ isDark ? 'Light' : 'Dark' }} mode</span>
+      </button>
     </div>
   </nav>
 </template>
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
+import { Moon, Sun } from 'lucide-vue-next'
 
 const isDark = useDark({
   selector: 'body',
