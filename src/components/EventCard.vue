@@ -65,8 +65,8 @@ const formatDate = (dateString?: string) => {
 
 <style scoped lang="scss">
 .event-card {
-  background: #fff;
-  border-radius: 12px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -112,7 +112,7 @@ const formatDate = (dateString?: string) => {
 .event-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-color);
   margin: 0;
   display: flex;
   align-items: center;
@@ -132,7 +132,7 @@ const formatDate = (dateString?: string) => {
 }
 
 .event-date {
-  color: #64748b;
+  color: var(--text-color);
   font-size: 0.875rem;
   margin: 0.5rem 0;
   display: flex;
@@ -141,12 +141,12 @@ const formatDate = (dateString?: string) => {
 }
 
 .event-description {
-  color: #475569;
+  color: var(--text-color);
   font-size: 0.9375rem;
   line-height: 1.5;
   margin: 1rem 0;
   padding: 0.75rem;
-  background-color: #f8fafc;
+  background-color: var(--bg-color);
   border-radius: 8px;
 }
 
