@@ -9,7 +9,15 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
 
-const isDark = useDark()
+const isDark = useDark({
+  selector: 'body',
+  attribute: 'data-scheme',
+  valueDark: 'dark',
+  onChanged: (dark) => {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+  },
+})
+
 const toggleDark = useToggle(isDark)
 </script>
 <style lang="scss" scoped>
@@ -21,10 +29,10 @@ nav {
   border-bottom: 1px solid var(--border-color);
 
   div {
-     button {
+    button {
       padding: 12px;
       background-color: var(--bg-color);
-     }
+    }
   }
 }
 </style>
