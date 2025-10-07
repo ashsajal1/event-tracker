@@ -1,0 +1,24 @@
+:root {
+  /* Light theme (default) */
+  --bg-color: #ffffff;
+  --text-color: #2c3e50;
+  --header-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --header-bg: #2d2d2d;
+  --card-bg: #2d2d2d;
+  --border-color: #444;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
