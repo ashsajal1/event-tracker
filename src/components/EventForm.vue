@@ -8,7 +8,7 @@
       <option value="medium">Medium</option>
       <option value="low">Low</option>
     </select>
-    <button type="submit">Add Event</button>
+    <button class="btn" type="submit">Add Event</button>
   </form>
 </template>
 
