@@ -49,6 +49,13 @@
   &:hover {
     background-color: var(--s-color);
   }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 4px;
+  }
 }
 
 body {
