@@ -18,10 +18,7 @@ const events = eventStore.events
 </template>
 
 <style scoped lang="scss">
-ul {
-  li {
-    list-style-type: none;
-    margin: 10px 0;
-  }
+main {
+  display: flex;
 }
 </style>
