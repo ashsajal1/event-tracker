@@ -34,7 +34,7 @@ const events = eventStore.events
   }
 
   .form-section {
-    width: 400px;
+    width: 100%;
     position: sticky;
     top: 20px;
   }
