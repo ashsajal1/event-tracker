@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import EventForm from '@/components/EventForm.vue';
 import { useEventStore } from '../stores/events'
+import EventCard from '@/components/EventCard.vue';
 const eventStore = useEventStore()
 const events = eventStore.events
 </script>
@@ -8,9 +9,9 @@ const events = eventStore.events
 <template>
   <main>
     <h1>Events</h1>
-    <ul>
-      <li v-for="event in events" :key="event.id">{{ event.name }}</li>
-    </ul>
+    <template v-for="event in events" :key="event.id">
+      <EventCard :event="event" />
+    </template>
 
     <EventForm />
   </main>
