@@ -41,18 +41,12 @@ form {
 
   input,
   textarea,
-  select,
-  button {
+  select {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-
-  button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    cursor: pointer;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
 }
 </style>
