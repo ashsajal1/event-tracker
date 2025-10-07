@@ -18,10 +18,33 @@
   --border-color: #444;
 }
 
-.btn {
-  background-color: var(--p-color);
+@mixin btn-base {
+  padding: 10px;
+  border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.btn {
+  @include btn-base;
+
+  background-color: var(--p-color);
 
   &:hover {
     background-color: var(--s-color);
