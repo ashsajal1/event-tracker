@@ -14,8 +14,8 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { useEventtore, type Event } from '../stores/events'
-const eventtore = useEventtore()
+import { useEventStore, type Event } from '../stores/events'
+const eventtore = useEventStore()
 
 const newEvent = reactive<Omit<Event, 'id'>>({
   name: '',
