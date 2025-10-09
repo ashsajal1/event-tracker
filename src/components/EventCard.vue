@@ -45,10 +45,10 @@ import {
   AlertCircleIcon,
   InfoIcon,
 } from 'lucide-vue-next'
-import type { Events } from '../stores/events'
+import type { Event } from '../stores/events'
 
 defineProps<{
-  event: Events
+  event: Event
 }>()
 
 const formatDate = (dateString?: string) => {

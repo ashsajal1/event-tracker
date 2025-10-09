@@ -1,9 +1,9 @@
 <template>
   <form @submit.prevent="addEvent">
-    <input v-model="newEvents.name" type="text" placeholder="Event name" />
-    <textarea v-model="newEvents.description" placeholder="Event description" />
-    <input v-model="newEvents.date" type="date" placeholder="Event date" />
-    <select v-model="newEvents.priority">
+    <input v-model="newEvent.name" type="text" placeholder="Event name" />
+    <textarea v-model="newEvent.description" placeholder="Event description" />
+    <input v-model="newEvent.date" type="date" placeholder="Event date" />
+    <select v-model="newEvent.priority">
       <option value="high">High</option>
       <option value="medium">Medium</option>
       <option value="low">Low</option>
@@ -14,10 +14,10 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { useEventStore, type Events } from '../stores/events'
-const eventStore = useEventStore()
+import { useEventtore, type Event } from '../stores/events'
+const eventtore = useEventtore()
 
-const newEvents = reactive<Omit<Events, 'id'>>({
+const newEvent = reactive<Omit<Event, 'id'>>({
   name: '',
   description: '',
   date: new Date().toISOString().split('T')[0]!,
@@ -25,11 +25,11 @@ const newEvents = reactive<Omit<Events, 'id'>>({
 })
 
 const addEvent = () => {
-  newEvents.date = new Date().toISOString().split('T')[0]!
-  eventStore.createEvent(newEvents)
-  newEvents.name = ''
-  newEvents.description = ''
-  newEvents.priority = 'high'
+  newEvent.date = new Date().toISOString().split('T')[0]!
+  eventtore.createEvent(newEvent)
+  newEvent.name = ''
+  newEvent.description = ''
+  newEvent.priority = 'high'
 }
 </script>
 

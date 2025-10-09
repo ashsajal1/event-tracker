@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { v4 as uuid } from 'uuid'
 
-export interface Events {
+export interface Event {
   id: string
   name: string
   description: string
@@ -10,24 +10,24 @@ export interface Events {
   priority?: 'high' | 'medium' | 'low'
 }
 
-export const useEventStore = defineStore('events', () => {
-  const events = ref<Events[]>([])
+export const useEventtore = defineStore('Event', () => {
+  const Event = ref<Event[]>([])
 
-  const createEvent = (event: Omit<Events, 'id'>) => {
-    events.value.push({ ...event, id: uuid() })
+  const createEvent = (event: Omit<Event, 'id'>) => {
+    Event.value.push({ ...event, id: uuid() })
   }
 
   const deleteEvent = (id: string) => {
-    events.value = events.value.filter((event) => event.id !== id)
+    Event.value = Event.value.filter((event) => event.id !== id)
   }
 
-  const updateEvent = (id: string, event: Events) => {
-    events.value = events.value.map((event) => (event.id === id ? event : event))
+  const updateEvent = (id: string, event: Event) => {
+    Event.value = Event.value.map((event) => (event.id === id ? event : event))
   }
 
   const getEventById = (eventId: string) => {
-    return events.value.find((event) => event.id === eventId)
+    return Event.value.find((event) => event.id === eventId)
   }
 
-  return { events, createEvent, deleteEvent, updateEvent, getEventById }
+  return { Event, createEvent, deleteEvent, updateEvent, getEventById }
 })
