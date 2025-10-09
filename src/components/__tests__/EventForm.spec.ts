@@ -10,5 +10,6 @@ describe('EventForm', () => {
   })
   it('should render properly', () => {
     const wrapper = mount(EventForm)
+    expect(wrapper.exists()).toBe(true)
   })
 })
