@@ -10,7 +10,7 @@ export interface Event {
   priority?: 'high' | 'medium' | 'low'
 }
 
-export const useEventtore = defineStore('Event', () => {
+export const useEventStore = defineStore('Event', () => {
   const events = ref<Event[]>([])
 
   const createEvent = (event: Omit<Event, 'id'>) => {
