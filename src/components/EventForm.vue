@@ -11,7 +11,7 @@
       <option value="medium">Medium</option>
       <option value="low">Low</option>
     </select>
-    <button :disabled="isSubmitting" class="btn" type="submit">
+    <button :disabled="isSubmitting || (!!errors.name! || !!errors.description! || !!errors.date!)" class="btn" type="submit">
       <span v-if="!isSubmitting">Add Event</span>
       <span v-else>Adding...</span>
     </button>
