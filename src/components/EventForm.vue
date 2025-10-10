@@ -24,16 +24,9 @@ const eventStore = useEventStore()
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import ErrorText from './ErrorText.vue'
-import z from 'zod'
+import { eventSchema } from './schema/form'
 
 const defaultDate = new Date().toISOString().split('T')[0]
-
-const eventSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  description: z.string().min(1, 'Description is required'),
-  date: z.string().min(1, 'Date is required'),
-  priority: z.enum(['high', 'medium', 'low']),
-})
 
 const { handleSubmit, errors, defineField, resetForm, isSubmitting } = useForm({
   validationSchema: toTypedSchema(eventSchema),
