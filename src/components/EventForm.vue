@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { useEventStore, type Event } from '../stores/events'
-const eventtore = useEventStore()
+const eventStore = useEventStore()
 
 const newEvent = reactive<Omit<Event, 'id'>>({
   name: '',
@@ -26,7 +26,7 @@ const newEvent = reactive<Omit<Event, 'id'>>({
 
 const addEvent = () => {
   newEvent.date = new Date().toISOString().split('T')[0]!
-  eventtore.createEvent(newEvent)
+  eventStore.createEvent(newEvent)
   newEvent.name = ''
   newEvent.description = ''
   newEvent.priority = 'high'
