@@ -23,6 +23,8 @@ import { useForm } from 'vee-validate'
 import ErrorText from './ErrorText.vue'
 import z from 'zod'
 
+const defaultDate = new Date().toISOString().split('T')[0]
+
 const eventSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   description: z.string().min(1, 'Description is required'),
@@ -32,6 +34,9 @@ const eventSchema = z.object({
 
 const { handleSubmit, errors, defineField } = useForm({
   validationSchema: toTypedSchema(eventSchema),
+  initialValues: {
+    date: defaultDate,
+  },
 })
 
 const [name, nameAttr] = defineField('name')
