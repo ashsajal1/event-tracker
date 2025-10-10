@@ -50,7 +50,7 @@ const onSubmit = handleSubmit((values) => {
     values: {
       name: '',
       description: '',
-      date: defaultDate,
+      date: new Date().toISOString().split('T')[0],
       priority: 'low',
     },
   })
