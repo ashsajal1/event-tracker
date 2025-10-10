@@ -32,7 +32,7 @@ const eventSchema = z.object({
   priority: z.enum(['high', 'medium', 'low']),
 })
 
-const { handleSubmit, errors, defineField } = useForm({
+const { handleSubmit, errors, defineField, resetForm } = useForm({
   validationSchema: toTypedSchema(eventSchema),
   initialValues: {
     date: defaultDate,
@@ -46,6 +46,14 @@ const [priority, priorityAttr] = defineField('priority')
 
 const onSubmit = handleSubmit((values) => {
   eventStore.createEvent(values as Omit<Event, 'id'>)
+  resetForm({
+    values: {
+      name: '',
+      description: '',
+      date: defaultDate,
+      priority: 'low',
+    },
+  })
 })
 </script>
 
