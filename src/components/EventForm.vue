@@ -11,7 +11,10 @@
       <option value="medium">Medium</option>
       <option value="low">Low</option>
     </select>
-    <button class="btn" type="submit">Add Event</button>
+    <button :disabled="isSubmitting" class="btn" type="submit">
+      <span v-if="!isSubmitting">Add Event</span>
+      <span v-else>Adding...</span>
+    </button>
   </form>
 </template>
 
@@ -32,7 +35,7 @@ const eventSchema = z.object({
   priority: z.enum(['high', 'medium', 'low']),
 })
 
-const { handleSubmit, errors, defineField, resetForm } = useForm({
+const { handleSubmit, errors, defineField, resetForm, isSubmitting } = useForm({
   validationSchema: toTypedSchema(eventSchema),
   initialValues: {
     date: defaultDate,
